@@ -31,11 +31,11 @@ namespace SalesWebMvc_Net31
         {
             services.AddControllersWithViews();
 
-            //services.AddDbContext<SalesWebMvc_Net31Context>(options =>
-            //        options.UseSqlServer(Configuration.GetConnectionString("SalesWebMvc_Net31Context")));
             services.AddDbContext<SalesWebMvc_Net31Context>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("SalesWebMvc_Net31Context"), builder =>
-                    builder.MigrationsAssembly("SalesWebMvc_Net31")));
+                    options.UseSqlServer(Configuration.GetConnectionString("SalesWebMvc_Net31Context")));
+            //services.AddDbContext<SalesWebMvc_Net31Context>(options =>
+            //        options.UseMySql(Configuration.GetConnectionString("SalesWebMvc_Net31Context"), builder =>
+            //        builder.MigrationsAssembly("SalesWebMvc_Net31")));
 
             services.AddScoped<SeedingService>();
             services.AddScoped<SellerService>();
